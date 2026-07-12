@@ -1,0 +1,235 @@
+/* ─── Google Font ──────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* ─── Root Variables ──────────────────────────────────────── */
+:root {
+  --primary: #10b981;
+  --primary-hover: #059669;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 30px rgba(16, 185, 129, 0.2);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Base ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* ─── Navbar ──────────────────────────────────────────────── */
+
+/* ─── Cards ───────────────────────────────────────────────── */
+.todo-card {
+  border-radius: var(--radius) !important;
+  border: none !important;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.todo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.todo-card.completed-card {
+  opacity: 0.7;
+}
+
+.todo-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.todo-card.priority-high::before  { background: var(--danger); }
+.todo-card.priority-medium::before { background: var(--warning); }
+.todo-card.priority-low::before   { background: var(--success); }
+
+/* ─── Priority Badges ─────────────────────────────────────── */
+.badge-priority-high   { background: rgba(239, 68, 68, 0.15) !important; color: #ef4444 !important; }
+.badge-priority-medium { background: rgba(245, 158, 11, 0.15) !important; color: #d97706 !important; }
+.badge-priority-low    { background: rgba(34, 197, 94, 0.15) !important; color: #16a34a !important; }
+
+/* ─── Stats Cards ─────────────────────────────────────────── */
+.stat-card {
+  border-radius: var(--radius) !important;
+  border: none !important;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* ─── Form Controls ───────────────────────────────────────── */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* ─── Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #10b981, #14b8a6) !important;
+  border: none !important;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #059669, #0d9488) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+}
+
+.btn-outline-primary {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+  font-weight: 500;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+
+/* ─── Auth Pages ──────────────────────────────────────────── */
+.auth-card {
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.auth-header-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #10b981, #14b8a6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* ─── Filter Bar ──────────────────────────────────────────── */
+.filter-chip {
+  border-radius: 50px !important;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.35rem 1rem !important;
+  transition: var(--transition);
+}
+
+/* ─── Empty State ─────────────────────────────────────────── */
+.empty-illustration {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(20,184,166,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  margin: 0 auto 1.5rem;
+}
+
+/* ─── Checkbox custom style ───────────────────────────────── */
+.form-check-input:checked {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* ─── Todo text strikethrough animation ───────────────────── */
+.todo-text {
+  transition: var(--transition);
+}
+
+.todo-text.done {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+/* ─── Page fade-in animation ──────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* ─── Overdue badge glow ──────────────────────────────────── */
+.overdue-glow {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ─── Dark mode extras ────────────────────────────────────── */
+[data-bs-theme="dark"] .todo-card {
+  background: #1e1e2e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-bs-theme="dark"] .stat-card {
+  background: #1e1e2e;
+}
+
+[data-bs-theme="dark"] .auth-card {
+  background: #1e1e2e;
+}
